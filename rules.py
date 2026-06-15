@@ -1,45 +1,63 @@
 import re
+from urllib.parse import unquote_plus
 
 ATTACK_PATTERNS = {
-    "SQL Injection": [
-        r"(\bUNION\b.*\bSELECT\b)",
-        r"(\bSELECT\b.*\bFROM\b)",
-        r"(\bOR\b\s+1=1)",
-        r"(--|#|/\*)",
-        r"(\bDROP\b|\bINSERT\b|\bDELETE\b|\bUPDATE\b)"
-    ],
     "XSS": [
-        r"(<script.*?>.*?</script>)",
-        r"(javascript:)",
-        r"(onerror=|onload=|onclick=)",
-        r"(<img.*?src=)",
-        r"(<svg.*?>)"
-    ],
-    "Command Injection": [
-        r"(\|\||&&|;)",
-        r"(\bcat\b|\bls\b|\bwhoami\b|\bpwd\b)",
-        r"(\bcurl\b|\bwget\b|\bbash\b|\bsh\b)"
+        r"<script[^>]*>.*?</script>",
+        r"javascript:",
+        r"onerror\s*=",
+        r"onload\s*=",
+        r"onclick\s*=",
+        r"<img[^>]+src[^>]*>",
+        r"<svg[^>]*>",
+        r"<iframe[^>]*>"
     ],
     "Directory Traversal": [
-        r"(\.\./|\.\.\\)",
-        r"(/etc/passwd)",
-        r"(boot\.ini)"
+        r"\.\./",
+        r"\.\.\\",
+        r"/etc/passwd",
+        r"boot\.ini",
+        r"/proc/self/environ"
+    ],
+    "Command Injection": [
+        r"(;|\|\||&&)\s*(whoami|id|uname|cat|ls|pwd|curl|wget|bash|sh)\b",
+        r"`.*?`",
+        r"\$\((.*?)\)"
+    ],
+    "SQL Injection": [
+        r"'\s*or\s*1=1",
+        r'"\s*or\s*"1"\s*=\s*"1',
+        r"\bunion\b\s+\bselect\b",
+        r"\bselect\b.+\bfrom\b",
+        r"\bdrop\b\s+\btable\b",
+        r"\binsert\b\s+\binto\b",
+        r"\bdelete\b\s+\bfrom\b",
+        r"\bupdate\b\s+\w+\s+\bset\b"
     ],
     "LFI": [
-        r"(\bfile=)",
-        r"(\bpage=)",
-        r"(/proc/self/environ)",
-        r"(/etc/passwd)"
+        r"(file|page|include|template)\s*=\s*.*(\.\./|/etc/passwd|/proc/self/environ)"
     ]
 }
 
-def detect_attack(payload: str):
+ATTACK_ORDER = [
+    "XSS",
+    "Directory Traversal",
+    "Command Injection",
+    "SQL Injection",
+    "LFI"
+]
+
+def normalize_payload(payload: str) -> str:
     if not payload:
-        return None
+        return ""
+    payload = unquote_plus(payload)
+    return payload.strip().lower()
 
-    for attack_type, patterns in ATTACK_PATTERNS.items():
-        for pattern in patterns:
-            if re.search(pattern, payload, re.IGNORECASE):
+def detect_attack(payload: str):
+    text = normalize_payload(payload)
+
+    for attack_type in ATTACK_ORDER:
+        for pattern in ATTACK_PATTERNS[attack_type]:
+            if re.search(pattern, text, re.IGNORECASE | re.DOTALL):
                 return attack_type
-
     return None

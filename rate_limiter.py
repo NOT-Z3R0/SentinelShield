@@ -3,7 +3,7 @@ from time import time
 
 REQUEST_LOG = defaultdict(list)
 WINDOW_SECONDS = 60
-MAX_REQUESTS = 10
+MAX_REQUESTS = 15
 
 def is_rate_limited(ip):
     current_time = time()

@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 def extract_payload(req):
     parts = []
+
     parts.append(req.path or "")
     parts.append(req.query_string.decode("utf-8", errors="ignore"))
 
@@ -15,9 +16,6 @@ def extract_payload(req):
 
     for key, value in req.form.items():
         parts.append(f"{key}={value}")
-
-    for key, value in req.headers.items():
-        parts.append(f"{key}: {value}")
 
     if req.data:
         parts.append(req.data.decode("utf-8", errors="ignore"))
@@ -53,15 +51,32 @@ def home():
 @app.route("/dashboard")
 def dashboard():
     logs = read_logs()
-    attack_summary = {}
+    attack_summary = {
+        "SQL Injection": 0,
+        "XSS": 0,
+        "Directory Traversal": 0,
+        "Command Injection": 0,
+        "LFI": 0,
+        "Rate Limit Exceeded": 0
+    }
     blocked_ips = {}
+    allowed_count = 0
+    blocked_count = 0
 
     for entry in logs:
-        attack = entry["attack_type"]
-        ip = entry["ip"]
+        attack = entry.get("attack_type", "None")
+        ip = entry.get("ip", "unknown")
+        action = entry.get("action", "")
 
-        if attack != "None":
-            attack_summary[attack] = attack_summary.get(attack, 0) + 1
+        if action == "ALLOWED":
+            allowed_count += 1
+        elif action == "BLOCKED":
+            blocked_count += 1
+
+        if attack in attack_summary:
+            attack_summary[attack] += 1
+
+        if action == "BLOCKED":
             blocked_ips[ip] = blocked_ips.get(ip, 0) + 1
 
     return render_template(
@@ -69,7 +84,9 @@ def dashboard():
         logs=logs[::-1],
         attack_summary=attack_summary,
         blocked_ips=blocked_ips,
-        ip_stats=get_ip_stats()
+        ip_stats=get_ip_stats(),
+        allowed_count=allowed_count,
+        blocked_count=blocked_count
     )
 
 @app.route("/health")
