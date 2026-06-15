@@ -1,0 +1,155 @@
+[
+    {
+        "timestamp": "2026-06-15 11:27:28",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=hello world\r\n | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 28 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:27:39",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=' OR 1=1 -- | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 26 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:27:47",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=<script>alert(1)</script> | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 50 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:04",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 33 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:08",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Referer: http://127.0.0.1:5000/ | Content-Type: application/x-www-form-urlencoded | Content-Length: 33 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:12",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 33 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:18",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:36",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:39",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:42",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:56",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:28:59",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:29:00",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 11 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:29:04",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:29:07",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami\r\n | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 27 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:29:12",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-06-15 11:29:16",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami | Host: 127.0.0.1:5000 | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0 | Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 | Accept-Language: en-US,en;q=0.9 | Accept-Encoding: gzip, deflate, br, zstd | Content-Type: application/x-www-form-urlencoded | Content-Length: 21 | Origin: http://127.0.0.1:5000 | Sec-Gpc: 1 | Connection: keep-alive | Referer: http://127.0.0.1:5000/ | Upgrade-Insecure-Requests: 1 | Sec-Fetch-Dest: document | Sec-Fetch-Mode: navigate | Sec-Fetch-Site: same-origin | Sec-Fetch-User: ?1 | Dnt: 1 | Priority: u=0, i",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    }
+]

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelShield Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>SentinelShield Dashboard</h1>
+        <a href="/">Back to Home</a>
+
+        <h2>Attack Summary</h2>
+        <ul>
+            {% for attack, count in attack_summary.items() %}
+                <li>{{ attack }}: {{ count }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Flagged IPs</h2>
+        <ul>
+            {% for ip, count in blocked_ips.items() %}
+                <li>{{ ip }}: {{ count }} suspicious events</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Request Volume by IP</h2>
+        <ul>
+            {% for ip, count in ip_stats.items() %}
+                <li>{{ ip }}: {{ count }} requests in active window</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Security Logs</h2>
+        <table>
+            <tr>
+                <th>Timestamp</th>
+                <th>IP</th>
+                <th>Method</th>
+                <th>Path</th>
+                <th>Attack</th>
+                <th>Action</th>
+            </tr>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.timestamp }}</td>
+                <td>{{ log.ip }}</td>
+                <td>{{ log.method }}</td>
+                <td>{{ log.path }}</td>
+                <td>{{ log.attack_type }}</td>
+                <td>{{ log.action }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
