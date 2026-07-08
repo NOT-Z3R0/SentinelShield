@@ -1,0 +1,209 @@
+[
+    {
+        "timestamp": "2026-07-08 17:33:19",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=hello world",
+        "attack_type": "None",
+        "action": "ALLOWED"
+    },
+    {
+        "timestamp": "2026-07-08 17:33:31",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=' OR 1=1 --",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:33:37",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=<script>alert(1)</script>",
+        "attack_type": "XSS",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:33:45",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Directory Traversal",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:33:51",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= ; whoami",
+        "attack_type": "Command Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:34:06",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= ; whoami\r\n",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:34:09",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= ; whoami",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:34:31",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:36:13",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=hello world",
+        "attack_type": "None",
+        "action": "ALLOWED"
+    },
+    {
+        "timestamp": "2026-07-08 17:36:20",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= ' OR 1=1 --",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:36:28",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= <script>alert(1)</script>",
+        "attack_type": "XSS",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:36:35",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Directory Traversal",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:36:42",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami",
+        "attack_type": "Command Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 17:36:46",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 21:36:16",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=hello world",
+        "attack_type": "None",
+        "action": "ALLOWED"
+    },
+    {
+        "timestamp": "2026-07-08 21:36:25",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=' OR 1=1 --\r\n",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 21:36:31",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=<script>alert(1)</script>",
+        "attack_type": "XSS",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 21:36:37",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= ../../etc/passwd",
+        "attack_type": "Directory Traversal",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 21:36:42",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami",
+        "attack_type": "Command Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 21:36:48",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Directory Traversal",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 21:36:52",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Directory Traversal",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 21:36:56",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-08 21:37:53",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=hello world",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    }
+]

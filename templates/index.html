@@ -1,40 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SentinelShield</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>SentinelShield</h1>
-        <p>Educational Web Protection & Intrusion Detection System</p>
-
-        <form method="POST">
-            <label for="user_input">Enter request input for inspection:</label>
-            <textarea name="user_input" id="user_input" rows="6" placeholder="Try normal text or test payloads"></textarea>
-            <button type="submit">Inspect Request</button>
-        </form>
-
-        {% if message %}
-            <div class="result {{ status }}">
-                {{ message }}
-            </div>
-        {% endif %}
-
-        <div class="examples">
-            <h3>Test Examples</h3>
-            <ul>
-                <li>Normal: hello world</li>
-                <li>SQLi: ' OR 1=1 --</li>
-                <li>XSS: &lt;script&gt;alert(1)&lt;/script&gt;</li>
-                <li>Traversal: ../../etc/passwd</li>
-                <li>Command: ; whoami</li>
-            </ul>
-        </div>
-
-        <a href="/dashboard">Open Dashboard</a>
-    </div>
-</body>
-</html>
+<div class="examples">
+    <h3>Test Examples</h3>
+    <ul>
+        <li>Normal: hello world</li>
+        <li>SQL Injection: ' OR 1=1 --</li>
+        <li>XSS: &lt;script&gt;alert(1)&lt;/script&gt;</li>
+        <li>Path Traversal: ../../etc/passwd</li>
+        <li>Local File Inclusion: page=../../etc/passwd</li>
+        <li>Command Injection: ; whoami</li>
+    </ul>
+</div>

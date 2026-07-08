@@ -9,7 +9,65 @@
 <body>
     <div class="container">
         <h1>SentinelShield Dashboard</h1>
+        <p>Session started: {{ session_start }}</p>
         <a href="/">Back to Home</a>
+
+        <div class="top-actions">
+            <a class="btn-link" href="/dashboard">Current Session Logs</a>
+            <a class="btn-link" href="/dashboard?view=all">View All Logs</a>
+            <a class="btn-link" href="/export-logs?view={{ current_view }}">Export Logs CSV</a>
+        </div>
+
+        <form method="POST" action="/clear-session" class="clear-form">
+            <button type="submit" class="danger-btn">Clear Current Session</button>
+        </form>
+
+        <form method="GET" action="/dashboard" class="filter-form">
+            <input type="hidden" name="view" value="{{ current_view }}">
+
+            <input type="text" name="ip" placeholder="Filter by IP address" value="{{ ip_filter }}">
+
+            <select name="attack">
+                <option value="">All Attack Types</option>
+                <option value="SQL Injection" {% if attack_filter == "SQL Injection" %}selected{% endif %}>SQL Injection</option>
+                <option value="XSS" {% if attack_filter == "XSS" %}selected{% endif %}>XSS</option>
+                <option value="Path Traversal" {% if attack_filter == "Path Traversal" %}selected{% endif %}>Path Traversal</option>
+                <option value="Local File Inclusion" {% if attack_filter == "Local File Inclusion" %}selected{% endif %}>Local File Inclusion</option>
+                <option value="Command Injection" {% if attack_filter == "Command Injection" %}selected{% endif %}>Command Injection</option>
+                <option value="Rate Limit Exceeded" {% if attack_filter == "Rate Limit Exceeded" %}selected{% endif %}>Rate Limit Exceeded</option>
+            </select>
+
+            <select name="action">
+                <option value="">All Actions</option>
+                <option value="ALLOWED" {% if action_filter == "ALLOWED" %}selected{% endif %}>Allowed</option>
+                <option value="BLOCKED" {% if action_filter == "BLOCKED" %}selected{% endif %}>Blocked</option>
+            </select>
+
+            <button type="submit">Apply Filter</button>
+        </form>
+
+        <div class="summary-boxes">
+            <div class="card">
+                <h3>Allowed Requests</h3>
+                <p>{{ allowed_count }}</p>
+            </div>
+            <div class="card">
+                <h3>Blocked Requests</h3>
+                <p>{{ blocked_count }}</p>
+            </div>
+            <div class="card">
+                <h3>View Mode</h3>
+                <p>{{ current_view }}</p>
+            </div>
+            <div class="card">
+                <h3>Top Attack Type</h3>
+                <p>{{ top_attack_type }} ({{ top_attack_count }})</p>
+            </div>
+            <div class="card">
+                <h3>Top Attacker IP</h3>
+                <p>{{ top_attacker_ip }} ({{ top_attacker_count }})</p>
+            </div>
+        </div>
 
         <h2>Attack Summary</h2>
         <ul>
@@ -18,29 +76,50 @@
             {% endfor %}
         </ul>
 
-        <h2>Flagged IPs</h2>
+        <h2>Flagged IP Addresses</h2>
         <ul>
             {% for ip, count in blocked_ips.items() %}
-                <li>{{ ip }}: {{ count }} suspicious events</li>
+                <li>{{ ip }}: {{ count }} blocked events</li>
+            {% else %}
+                <li>No suspicious IPs in this view.</li>
             {% endfor %}
         </ul>
 
-        <h2>Request Volume by IP</h2>
+        <h2>Currently Blocked IP Addresses</h2>
         <ul>
-            {% for ip, count in ip_stats.items() %}
-                <li>{{ ip }}: {{ count }} requests in active window</li>
+            {% for ip, remaining in blocked_ip_times.items() %}
+                <li>{{ ip }}: blocked for {{ remaining }} more seconds</li>
+            {% else %}
+                <li>No IP is currently blocked.</li>
             {% endfor %}
         </ul>
 
-        <h2>Security Logs</h2>
+        <h2>Attack Attempts by IP Address</h2>
+        <ul>
+            {% for ip, attacks in ip_stats.items() %}
+                <li>
+                    <strong>{{ ip }}</strong>
+                    <ul>
+                        {% for attack, count in attacks.items() %}
+                            <li>{{ attack }}: {{ count }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                <li>No attack attempts recorded yet.</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Security Event Logs</h2>
         <table>
             <tr>
                 <th>Timestamp</th>
-                <th>IP</th>
+                <th>IP Address</th>
                 <th>Method</th>
                 <th>Path</th>
-                <th>Attack</th>
+                <th>Attack Type</th>
                 <th>Action</th>
+                <th>Payload</th>
             </tr>
             {% for log in logs %}
             <tr>
@@ -50,6 +129,11 @@
                 <td>{{ log.path }}</td>
                 <td>{{ log.attack_type }}</td>
                 <td>{{ log.action }}</td>
+                <td>{{ log.payload[:80] }}{% if log.payload|length > 80 %}...{% endif %}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="7">No logs found for this filter.</td>
             </tr>
             {% endfor %}
         </table>
