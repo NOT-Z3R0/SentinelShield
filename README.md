@@ -157,17 +157,6 @@ The dashboard shows a summary of activity recorded by the application. It can be
 - It is not intended for production deployment as a real web application firewall.
 - The Flask development server is used only for local testing.
 
-## Possible Improvements
-
-Some future improvements that can be added:
-
-- better rule tuning to reduce false positives
-- persistent database logging
-- authentication for dashboard access
-- data visualization charts
-- deployment using a production WSGI server
-- more advanced request analysis
-
 ## Author
 
 Project developed as part of a cybersecurity practical project submission.
