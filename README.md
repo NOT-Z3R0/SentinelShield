@@ -22,7 +22,6 @@ The goal of the project is to show how a simple web protection workflow works in
   - attack summary
   - recent security logs
 - Clear current session option
-- Export logs option (if enabled in the current version)
 
 ## Project Structure
 

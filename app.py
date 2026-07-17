@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, jsonify, redirect, url_for, make_response
 from datetime import datetime
-from io import StringIO
-import csv
+
 
 from rules import detect_attack
 from rate_limiter import (
@@ -173,31 +172,6 @@ def clear_session():
     reset_current_session_logs()
     reset_rate_limiter()
     return redirect(url_for("dashboard"))
-
-@app.route("/export-logs")
-def export_logs():
-    view = request.args.get("view", "current")
-    logs = read_logs(view=view)
-
-    output = StringIO()
-    writer = csv.writer(output)
-    writer.writerow(["timestamp", "ip", "method", "path", "payload", "attack_type", "action"])
-
-    for log in logs:
-        writer.writerow([
-            log.get("timestamp", ""),
-            log.get("ip", ""),
-            log.get("method", ""),
-            log.get("path", ""),
-            log.get("payload", ""),
-            log.get("attack_type", ""),
-            log.get("action", "")
-        ])
-
-    response = make_response(output.getvalue())
-    response.headers["Content-Disposition"] = f"attachment; filename={view}_logs.csv"
-    response.headers["Content-type"] = "text/csv"
-    return response
 
 @app.route("/health")
 def health():
