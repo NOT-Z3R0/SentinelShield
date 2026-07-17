@@ -12,12 +12,17 @@ ATTACK_PATTERNS = {
         r"<svg[^>]*>",
         r"<iframe[^>]*>"
     ],
+    "Local File Inclusion": [
+        r"(file|page|include|template|doc|folder|root|path)\s*=\s*.*(\.\./|\.\.\\|/etc/passwd|/proc/self/environ|boot\.ini)",
+    ],
     "Path Traversal": [
         r"\.\./",
         r"\.\.\\",
+        r"%2e%2e%2f",
+        r"%2e%2e%5c",
         r"/etc/passwd",
-        r"boot\.ini",
-        r"/proc/self/environ"
+        r"/proc/self/environ",
+        r"boot\.ini"
     ],
     "Command Injection": [
         r"(;|\|\||&&)\s*(whoami|id|uname|cat|ls|pwd|curl|wget|bash|sh)\b",
@@ -33,18 +38,15 @@ ATTACK_PATTERNS = {
         r"\binsert\b\s+\binto\b",
         r"\bdelete\b\s+\bfrom\b",
         r"\bupdate\b\s+\w+\s+\bset\b"
-    ],
-    "Local File Inclusion": [
-        r"(file|page|include|template)\s*=\s*.*(\.\./|/etc/passwd|/proc/self/environ)"
     ]
 }
 
 ATTACK_ORDER = [
     "XSS",
+    "Local File Inclusion",
     "Path Traversal",
     "Command Injection",
-    "SQL Injection",
-    "Local File Inclusion"
+    "SQL Injection"
 ]
 
 def normalize_payload(payload: str) -> str:

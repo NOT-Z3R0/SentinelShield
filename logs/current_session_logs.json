@@ -1,1 +1,101 @@
-[]
+[
+    {
+        "timestamp": "2026-07-17 17:54:54",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=hello world",
+        "attack_type": "None",
+        "action": "ALLOWED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:06",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=' OR 1=1 --",
+        "attack_type": "SQL Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:12",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=<script>alert(1)</script>",
+        "attack_type": "XSS",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:19",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Path Traversal",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:25",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=page=../../etc/passwd",
+        "attack_type": "Local File Inclusion",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:32",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=; whoami",
+        "attack_type": "Command Injection",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:39",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Path Traversal",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:43",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input=../../etc/passwd",
+        "attack_type": "Path Traversal",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:49",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= page=../../etc/passwd",
+        "attack_type": "Local File Inclusion",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:52",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= page=../../etc/passwd",
+        "attack_type": "Local File Inclusion",
+        "action": "BLOCKED"
+    },
+    {
+        "timestamp": "2026-07-17 17:55:58",
+        "ip": "127.0.0.1",
+        "method": "POST",
+        "path": "/",
+        "payload": "/ |  | user_input= page=../../etc/passwd",
+        "attack_type": "Rate Limit Exceeded",
+        "action": "BLOCKED"
+    }
+]

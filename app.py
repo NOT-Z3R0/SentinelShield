@@ -39,13 +39,13 @@ def extract_payload(req):
 
 def calculate_dashboard_metrics(logs):
     attack_summary = {
-        "SQL Injection": 0,
-        "XSS": 0,
-        "Path Traversal": 0,
-        "Local File Inclusion": 0,
-        "Command Injection": 0,
-        "Rate Limit Exceeded": 0
-    }
+    "SQL Injection": 0,
+    "XSS": 0,
+    "Path Traversal": 0,
+    "Local File Inclusion": 0,
+    "Command Injection": 0,
+    "Rate Limit Exceeded": 0
+}
 
     blocked_ips = {}
     allowed_count = 0
